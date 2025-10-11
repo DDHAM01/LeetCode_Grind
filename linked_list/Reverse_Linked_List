@@ -1,0 +1,40 @@
+// Problem: Reverse Linked List (LeetCode #206)
+// Link: https://leetcode.com/problems/reverse-linked-list/
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+// Approach: Iterative pointer reversal
+// My Notes:
+// - Classic linked list manipulation problem
+// - Great for mastering pointer updates and in-place reversal
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        // My Implementation
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        while (curr) {
+            ListNode* nextNode = curr->next; // store next node
+            curr->next = prev;               // reverse pointer
+            prev = curr;                     // move prev forward
+            curr = nextNode;                 // move curr forward
+        }
+        return prev; // new head
+    }
+};
+
+/*
+-----------------------------------------------
+✅ Alternative Solution: Recursive
+-----------------------------------------------
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (!head || !head->next) return head; // base case
+        ListNode* newHead = reverseList(head->next);
+        head->next->next = head; // reverse link
+        head->next = nullptr;
+        return newHead;
+    }
+};
+*/
