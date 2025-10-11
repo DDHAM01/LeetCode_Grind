@@ -3,6 +3,9 @@
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 // Approach: Floyd’s Tortoise and Hare (slow & fast pointers)
+// My Notes:
+// - First tried iterative pointer advance (custom version)
+// - Optimized to standard Floyd’s cycle detection for clarity
 
 class Solution {
 public:
